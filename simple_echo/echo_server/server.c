@@ -4,7 +4,7 @@ int main(int argc, char* argv[])
 {
 	sock_info serv;
 	sock_info clnt;
-	int recv_byte, send_byte;
+	int recv_byte;
 	char buffer[BUFF_SIZE];
 
 	if( 2 != argc )
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 		printf("[%s] connect\n",inet_ntoa(clnt.addr.sin_addr));
 		printf("From client : %s -%dbyte\n",buffer,recv_byte);
 
-		send_byte = write(clnt.sock,buffer,recv_byte);
+		write(clnt.sock,buffer,recv_byte);
 		printf("To client : %s\n",buffer);
 
 	}
